@@ -28,13 +28,13 @@ function maxPalindromeProductOf3DigitNumbers() {
         console.log(n, m, i, checkIfPalindrome(i));
     }
 
-    palindromes.push(Number(i));
+    palindromes.push(i);
 
     for (let j = 999; j > 1; j--) {
         for (let k = 999; k > 1; k--) {
             i = j * k;
             if (checkIfPalindrome(i)) {
-                palindromes.push(Number(i));
+                palindromes.push(i);
             }
         }
     }
