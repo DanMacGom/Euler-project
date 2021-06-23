@@ -4,19 +4,19 @@
 let arr = [...Array(21).keys()].filter((num) => num !== 0);
 
 function isEvenlyDivisible1to20(number) {
-    let res = arr.map((num) => number % num === 0).every((v) => v === true);
+  let res = arr.map((num) => number % num === 0).every((v) => v === true);
 
-    return res;
+  return res;
 }
 
 function smallestNumberEvenlyDivisible1to20() {
-    let i = 1;
+  let i = 1;
 
-    while (!isEvenlyDivisible1to20(i)) {
-        i += 1;
-    }
+  while (!isEvenlyDivisible1to20(i)) {
+    i += 1;
+  }
 
-    return i;
+  return i;
 }
 
 console.log(smallestNumberEvenlyDivisible1to20());

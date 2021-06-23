@@ -2,14 +2,14 @@
 
 // Find the sum of all the multiples of 3 or 5 below 1000.
 function multiples3And5(num) {
-    let res = 0;
-    for (let i = 1; i < num; i++) {
-        if (i % 3 === 0 || i % 5 === 0) {
-            res += i;
-        }
+  let res = 0;
+  for (let i = 1; i < num; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      res += i;
     }
+  }
 
-    return res;
+  return res;
 }
 
 console.log(multiples3And5(1000));

@@ -4,16 +4,16 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 function fibonacci(limit) {
-    let memo = [1, 2];
+  let memo = [1, 2];
 
-    for (let i = 2; memo[i - 1] + memo[i - 2] < limit; i++) {
-        memo[i] = memo[i - 2] + memo[i - 1];
-    }
+  for (let i = 2; memo[i - 1] + memo[i - 2] < limit; i++) {
+    memo[i] = memo[i - 2] + memo[i - 1];
+  }
 
-    memo = memo.filter((a) => a % 2 === 0);
+  memo = memo.filter((a) => a % 2 === 0);
 
-    console.log(memo);
-    return memo.reduce((a, b) => a + b, 0);
+  console.log(memo);
+  return memo.reduce((a, b) => a + b, 0);
 }
 
 console.log(fibonacci(4000000));
