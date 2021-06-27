@@ -50,6 +50,7 @@ function calculateFirstOfMonthSundays() {
     for (let month = 1; month <= 12; month++) {
       dayOfWeek += daysInMonth[month] % 7;
 
+      // Dayweek of every first of month.
       if (dayOfWeek > 7) {
         dayOfWeek = dayOfWeek % 7;
       } else if (dayOfWeek === 7) {
