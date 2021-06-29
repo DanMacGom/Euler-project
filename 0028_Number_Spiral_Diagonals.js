@@ -11,42 +11,96 @@
 // What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 function sumSpiralDiagonals(lengthArr) {
   let arr = [];
-  let width = 1;
+  let totalSum = 0;
 
   for (let i = 0; i < lengthArr; i++) {
     arr.push(new Array(lengthArr));
   }
 
   let count = 1;
-  let right = 1;
-  let down = 1;
-  let left = 2;
-  let top = 2;
 
-  arr[parseInt(lengthArr / 2)][parseInt(lengthArr / 2)] = 1;
-  //RIght
-  arr[parseInt(lengthArr / 2)][parseInt(lengthArr / 2) + 1] = 2;
-  //Down
-  arr[parseInt(lengthArr / 2) + 1][parseInt(lengthArr / 2) + 1] = 3;
-  //Left
-  arr[parseInt(lengthArr / 2) + 1][parseInt(lengthArr / 2) + 1 - 1] = 4;
-  arr[parseInt(lengthArr / 2) + 1][parseInt(lengthArr / 2) + 1 - 1 - 1] = 5;
+  let right = 0;
+  let down = 0;
+  let left = 0;
+  let up = 0;
 
-  // Top
-  arr[parseInt(lengthArr / 2) + 1 - 1][parseInt(lengthArr / 2) + 1 - 1 - 1] = 6;
-  arr[parseInt(lengthArr / 2) + 1 - 1 - 1][
-    parseInt(lengthArr / 2) + 1 - 1 - 1
-  ] = 7;
+  let movRight = 1;
+  let movDown = 1;
+  let movLeft = 2;
+  let movUp = 2;
 
-  //right
-  arr[parseInt(lengthArr / 2) + 1 - 1 - 1][
-    parseInt(lengthArr / 2) + 1 - 1 - 1 + 1
-  ] = 8;
-  arr[parseInt(lengthArr / 2) + 1 - 1 - 1][
-    parseInt(lengthArr / 2) + 1 - 1 - 1 + 1 + 1
-  ] = 9;
+  let maxMovRight = 1;
+  let maxMovDown = 1;
+  let maxMovLeft = 2;
+  let maxMovUp = 2;
 
-  return arr;
+  // Center position
+  arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+
+  // Helix shape:
+  //
+  //           7
+  //           6 1 2
+  //           5 4 3
+  while (count <= lengthArr * lengthArr - lengthArr) {
+    while (movRight) {
+      ++count;
+      ++right;
+      arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+      --movRight;
+    }
+    maxMovRight += 2;
+    movRight = maxMovRight;
+
+    while (movDown) {
+      ++count;
+      ++down;
+      arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+      --movDown;
+    }
+    maxMovDown += 2;
+    movDown = maxMovDown;
+
+    while (movLeft) {
+      ++count;
+      ++left;
+      arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+      --movLeft;
+    }
+    maxMovLeft += 2;
+    movLeft = maxMovLeft;
+
+    while (movUp) {
+      ++count;
+      ++up;
+      arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+      --movUp;
+    }
+    maxMovUp += 2;
+    movUp = maxMovUp;
+  }
+
+  // Last right.
+  movRight = lengthArr - 1;
+  while (movRight) {
+    ++right;
+    ++count;
+    arr[parseInt(lengthArr / 2) - up + down][parseInt(lengthArr / 2) + right - left] = count;
+    --movRight;
+  }
+
+  // \ Diagonal.
+  for (let i = 0, j = 0; i < lengthArr, j < lengthArr; i++, j++) {
+    totalSum += arr[i][j];
+  }
+
+  // / Diagonal
+  for (let i = lengthArr - 1, j = 0; i > 0, j < lengthArr; i--, j++) {
+    totalSum += arr[j][i];
+  }
+
+  // Middle point (1) is summed two times in the diagonals.
+  return totalSum - 1;
 }
 
-console.log(sumSpiralDiagonals(3));
+console.log(sumSpiralDiagonals(1001));
