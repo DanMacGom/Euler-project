@@ -4,7 +4,7 @@
 // There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
 
 // How many circular primes are there below one million?
-function arrayOfPrimes(n) {
+function objOfPrimes(n) {
   let obj = {};
 
   for (let i = 2; i < n; i++) {
@@ -24,10 +24,12 @@ function arrayOfPrimes(n) {
 
 function circularPrimes(n) {
   let iString = [];
+
+  // 2 is the only even prime, count it.
   let primeCount = 1;
   let trueCount = 0;
   let arr = [];
-  const primes = arrayOfPrimes(n);
+  const primes = objOfPrimes(n);
 
   for (let i = 3; i < n; i += 2) {
     iString = i.toString();
