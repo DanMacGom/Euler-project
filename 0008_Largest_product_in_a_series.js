@@ -28,9 +28,7 @@ function thirteenAdjacentDigitsWithGreatestProduct() {
   let maxProd = 0;
 
   for (let i = 0; i < num.length - 12; i++) {
-    let currentProd = Array.from(num.substring(i, i + 13)).reduce(
-      (acc, curr) => acc * curr
-    );
+    let currentProd = Array.from(num.substring(i, i + 13)).reduce((acc, curr) => acc * curr);
 
     if (maxProd < currentProd) {
       maxProd = currentProd;

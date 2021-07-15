@@ -2,5 +2,8 @@
   "dependencies": {
     "decimal.js": "^10.3.1",
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "prettier": "2.3.2"
   }
 }

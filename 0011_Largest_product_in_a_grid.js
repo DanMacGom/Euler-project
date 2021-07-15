@@ -57,8 +57,7 @@ function greatestProductOfNHorVertDiag(n) {
   // Horizontal.
   for (let j = 0; j < arr[0].length; j++) {
     for (let i = 0; i < arr[0].length - n - 1; i++) {
-      let currentProduct =
-        arr[j][i] * arr[j][i + 1] * arr[j][i + 2] * arr[j][i + 3];
+      let currentProduct = arr[j][i] * arr[j][i + 1] * arr[j][i + 2] * arr[j][i + 3];
 
       if (currentProduct > maxProduct) {
         maxProduct = currentProduct;
@@ -69,8 +68,7 @@ function greatestProductOfNHorVertDiag(n) {
   // Vertical.
   for (let j = 0; j < arr[0].length - n - 1; j++) {
     for (let i = 0; i < arr[0].length; i++) {
-      let currentProduct =
-        arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i];
+      let currentProduct = arr[j][i] * arr[j + 1][i] * arr[j + 2][i] * arr[j + 3][i];
 
       if (currentProduct > maxProduct) {
         maxProduct = currentProduct;
@@ -81,8 +79,7 @@ function greatestProductOfNHorVertDiag(n) {
   // Diagonal \.
   for (let j = 0; j < arr[0].length - n + 1; j++) {
     for (let i = 0; i < arr[0].length - n + 1; i++) {
-      let currentProduct =
-        arr[j][i] * arr[j + 1][i + 1] * arr[j + 2][i + 2] * arr[j + 3][i + 3];
+      let currentProduct = arr[j][i] * arr[j + 1][i + 1] * arr[j + 2][i + 2] * arr[j + 3][i + 3];
 
       if (currentProduct > maxProduct) {
         maxProduct = currentProduct;
@@ -93,8 +90,7 @@ function greatestProductOfNHorVertDiag(n) {
   // Diagonal /.
   for (let j = 0; j < arr[0].length - n + 1; j++) {
     for (let i = 3; i < arr[0].length; i++) {
-      let currentProduct =
-        arr[j][i] * arr[j + 3][i - 3] * arr[j + 2][i - 2] * arr[j + 1][i - 1];
+      let currentProduct = arr[j][i] * arr[j + 3][i - 3] * arr[j + 2][i - 2] * arr[j + 1][i - 1];
 
       if (currentProduct > maxProduct) {
         maxProduct = currentProduct;

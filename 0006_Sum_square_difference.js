@@ -2,13 +2,9 @@
 function sumSquareDifference() {
   const sumSquares = [...Array(101).keys()]
     .filter((num) => num !== 0)
-    .reduce(
-      (accumulator, currentValue) => accumulator + currentValue * currentValue
-    );
+    .reduce((accumulator, currentValue) => accumulator + currentValue * currentValue);
 
-  const squareOfSum = [...Array(101).keys()]
-    .filter((num) => num !== 0)
-    .reduce((acc, curr) => acc + curr);
+  const squareOfSum = [...Array(101).keys()].filter((num) => num !== 0).reduce((acc, curr) => acc + curr);
 
   return squareOfSum * squareOfSum - sumSquares;
 }

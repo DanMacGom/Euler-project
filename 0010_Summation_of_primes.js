@@ -15,9 +15,7 @@ function sumOfPrimesUntilMaxNumber(num) {
     }
   }
 
-  return arr
-    .map((val, index) => (val === true ? index : 0))
-    .reduce((acc, curr) => acc + curr);
+  return arr.map((val, index) => (val === true ? index : 0)).reduce((acc, curr) => acc + curr);
 }
 
 console.log(sumOfPrimesUntilMaxNumber(2000000));

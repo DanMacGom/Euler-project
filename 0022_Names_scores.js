@@ -10,9 +10,7 @@ async function nameScores() {
 
   const regex = new RegExp('"', "g");
 
-  const rawData = await fetch(
-    "https://projecteuler.net/project/resources/p022_names.txt"
-  );
+  const rawData = await fetch("https://projecteuler.net/project/resources/p022_names.txt");
 
   let data = await rawData.text();
 
